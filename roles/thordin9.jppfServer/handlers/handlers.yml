@@ -1,0 +1,5 @@
+---
+- name: Restart jppf server service
+  service:
+    name: jppf_server
+    state: restarted

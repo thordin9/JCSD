@@ -1,0 +1,16 @@
+---
+- name: Install JPPF server service
+  template:
+    src: templates/jppf_server.service.j2
+    dest: /lib/systemd/system/jppf_server.service
+    owner: root
+    group: root
+    mode: 0644
+#  notify:
+#    - Restart jppf server service
+
+- name: Enable JPPF server service
+  service:
+    daemon_reload: yes
+    name: jppf_server
+    enabled: yes

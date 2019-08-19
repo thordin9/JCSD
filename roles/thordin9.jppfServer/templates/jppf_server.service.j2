@@ -1,0 +1,14 @@
+[Unit]
+Description=JPPF Server Unit
+
+[Service]
+ExecStart=/usr/bin/java -cp config:lib/* -Xmx32m -Djppf.config=jppf-driver.properties -Dlog4j.configuration=log4j-driver.properties -Djava.util.logging.config.file=config/logging-driver.properties org.jppf.server.DriverLauncher
+WorkingDirectory=/opt/jppfServer/JPPF-{{ fullversion }}-driver/
+TimeoutStartSec=120
+TimeoutStopSec=25
+User=root
+Restart=always
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target

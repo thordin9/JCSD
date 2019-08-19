@@ -1,0 +1,17 @@
+---
+plugin: scaleway
+#oauth_token: "{{ oauth_token_encrypted }}" <- unfortunately this wont work and
+# an ENV variable needs to be present in playbook startup
+#env:SCW_TOKEN
+#env:SCW_API_KEY
+#env:SCW_OAUTH_TOKEN
+hostnames:
+  - hostname
+regions:
+  - ams1
+#  - par1
+tags:
+  - projectA
+variables:
+  ansible_host: public_ip.address
+  tags: tags # < important to feed back tags so we can limit roles etc..

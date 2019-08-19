@@ -1,0 +1,9 @@
+---
+- name: Wait for system to become reachable over SSH
+  wait_for_connection:
+    timeout: 600
+
+- name: make sure required packages are there
+  package:
+    name: ['aptitude','wget','ca-certificates','zip','unzip']
+    state: present

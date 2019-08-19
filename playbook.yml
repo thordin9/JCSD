@@ -1,0 +1,21 @@
+---
+#P1-provision vms from localhost
+- hosts: localhost
+  gather_facts: no
+  roles:
+    - { role: scprovisioner }
+
+#P2-prepare and install roles
+- hosts: ams1
+  gather_facts: no
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: bash -c "test -e /usr/bin/python || (apt -qqy update && apt install -qqy python-minimal)"
+      register: output
+      changed_when: output.stdout != ""
+    - name: Gathering Facts
+      setup:
+  roles:
+    - { role: thordin9.scaleway.common }
+    - { role: ansiblebit.oracle-java }
+    - { role: thordin9.jppfServer }

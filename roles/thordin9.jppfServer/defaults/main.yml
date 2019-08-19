@@ -1,0 +1,5 @@
+---
+jppfServer_link: https://github.com/jppf-grid/JPPF/releases/download/v_6_1_1/JPPF-6.1.1-driver.zip
+downloadLocation: /tmp
+installLocation: /opt
+fullversion: 6.1.1

@@ -1,0 +1,9 @@
+1. ansible-galaxy install ansiblebit.oracle-java
+2. provide your own vault.yml with encrypted password for token \
+ and organization under group_vars/all/
+AND token as env variable for the dynamic inventory to work:
+env:SCW_TOKEN or 
+env:SCW_API_KEY or 
+env:SCW_OAUTH_TOKEN or
+
+Note: this is still WIP and wont set up a working cluster yet!

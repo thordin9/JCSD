@@ -1,0 +1,20 @@
+---
+- name: "Ensure required scaleway hosts are in the desired state"
+  scaleway_compute:
+    api_token: "{{ apitoken }}"
+    commercial_type: "{{ item.type }}"
+    image: "{{ item.image }}"
+    name: "{{ item.name }}"
+    organization: "{{ organization }}"
+    public_ip: "{{ item.public_ip }}"
+    region: "{{ item.region }}"
+    state: "{{ item.state }}"
+#    state: absent
+    tags: "{{ item.tags }}"
+    wait: yes
+  with_items:
+    - "{{ sc_hosts }}"
+  retries: 3
+  delay: 5
+
+...

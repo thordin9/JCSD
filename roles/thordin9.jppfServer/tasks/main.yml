@@ -1,0 +1,9 @@
+---
+- include_tasks: install.yml
+  when: '"jppfServer" in tags'
+
+- include_tasks: service.yml
+  when: '"jppfServer" in tags'
+
+- include_tasks: configure.yml
+  when: '"jppfServer" in tags'

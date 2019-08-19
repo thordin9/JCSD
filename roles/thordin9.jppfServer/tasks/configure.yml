@@ -1,0 +1,15 @@
+---
+- name: Configure JPPF server
+  template:
+    src: templates/jppf_driver.properties.j2
+    dest: "/opt/jppfServer/JPPF-{{ fullversion }}-driver/config/jppf-driver.properties"
+    owner: root
+    group: root
+    mode: 0644
+#  notify:
+#    - Restart jppf server service
+
+- name: Start JPPF server service
+  service:
+    name: jppf_server
+    state: restarted

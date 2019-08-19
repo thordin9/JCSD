@@ -1,0 +1,21 @@
+---
+- name: Download JPPF server
+  get_url:
+    url: "{{ jppfServer_link }}"
+    dest: "{{ downloadLocation }}/jppfServer.zip"
+
+- name: Create JPPF server directory
+  file:
+    state: directory
+    path: "/{{ installLocation }}/jppfServer/"
+    mode: "u=rwx"
+    owner: root
+    group: root
+
+- name: Extract JPPF server
+  unarchive:
+    src: "{{ downloadLocation }}/jppfServer.zip"
+    dest: "/{{ installLocation }}/jppfServer/"
+    owner: root
+    group: root
+    copy: no

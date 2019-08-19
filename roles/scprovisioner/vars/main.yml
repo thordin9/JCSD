@@ -1,0 +1,8 @@
+# region can be par1 or ams1
+# 9444d178-... is ubuntu bionic
+sc_hosts:
+  - {state: "running", name: "apple" , image: "9444d178-2285-4842-ac35-5e86eda8da91", type: "DEV1-S", region: "ams1", public_ip: "dynamic", tags: ["projectA","jppfServer","jppfNode"]}
+  - {state: "running", name: "orange", image: "9444d178-2285-4842-ac35-5e86eda8da91", type: "DEV1-S", region: "ams1", public_ip: "dynamic", tags: ["projectA","jppfNode"]}
+  - {state: "running", name: "banana", image: "9444d178-2285-4842-ac35-5e86eda8da91", type: "DEV1-S", region: "ams1", public_ip: "dynamic", tags: ["projectA","jppfNode"]}
+organization: "{{ organization_encrypted }}"
+apitoken: "{{ oauth_token_encrypted }}"
